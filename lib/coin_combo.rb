@@ -70,16 +70,16 @@ class Float
       elsif amount <= 0.20
         dime_amount = amount.*(100)./(10).to_s.slice(0..0)
         if amount < 0.20
-          amount_return = dime_amount.concat(coin_hash.fetch(0.10)[0])
+          amount_return.concat(dime_amount.concat(coin_hash.fetch(0.10)[0]))
         else
-          amount_return = dime_amount.concat(coin_hash.fetch(0.10)[1])
+          amount_return.concat(dime_amount.concat(coin_hash.fetch(0.10)[1]))
         end
         amount -= 0.10
         # binding.pry
-        if amount > 0 && amount < 0.06
-          amount_return.concat(" and ")
-        elsif amount > 0.05
+        if amount > 0.05
           amount_return.concat(", ")
+        else
+          amount_return.concat(" and ")
         end
       else
         quarter_amount = amount.*(100)./(25).to_s.slice(0..0)

@@ -68,6 +68,8 @@ describe('Float#coin_combo') do
     expect((0.25).coin_combo()).to(eq("1 quarter"))
   end
 
-  
+  it("takes 0.41 and returns '1 quarter, 1 dime, 1 nickel and 1 penny'") do
+    expect((0.41).coin_combo()).to(eq("1 quarter, 1 dime, 1 nickel and 1 penny"))
+  end
 
 end
