@@ -10,30 +10,6 @@
 #
 # end
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 require('rspec')
 require('coin_combo')
 require('pry')
@@ -70,6 +46,10 @@ describe('Float#coin_combo') do
 
   it("takes 0.41 and returns '1 quarter, 1 dime, 1 nickel and 1 penny'") do
     expect((0.41).coin_combo()).to(eq("1 quarter, 1 dime, 1 nickel and 1 penny"))
+  end
+
+  it("takes 1 and returns '4 quarters'") do
+    expect((1.00).coin_combo()).to(eq("4 quarters"))
   end
 
 end
