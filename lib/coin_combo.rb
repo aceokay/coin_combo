@@ -44,7 +44,7 @@ class Float
   define_method(:coin_combo) do
     amount = self.round(2)
     coin_hash = Hash.new()
-    coin_hash = {0.01 => [ " penny", " pennies"],  0.05  => [" nickel", " nickels"], 0.10 => [" dime", " dimes"]}
+    coin_hash = {0.01 => [ " penny", " pennies"],  0.05  => [" nickel", " nickels"], 0.10 => [" dime", " dimes"], 0.25 => [" quarter", " quarters"]}
     amount_return = ""
     while amount > 0
       if amount < 0.05
@@ -80,6 +80,22 @@ class Float
           amount_return.concat(" and ")
         elsif amount > 0.05
           amount_return.concat(", ")
+        end
+      else
+        quarter_amount = amount.*(100)./(25).to_s.slice(0..0)
+        if amount < 0.50
+          amount_return = quarter_amount.concat(coin_hash.fetch(0.25)[0])
+        else
+          amount_return = quarter_amount.concat(coin_hash.fetch(0.25)[1])
+        end
+        amount -= 0.25
+        # binding.pry
+        if amount > 0 && amount < 0.06
+          amount_return.concat(" and ")
+        elsif amount > 0.05
+          amount_return.concat(", ")
+        else
+          break
         end
       end
     end
