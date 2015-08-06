@@ -11,4 +11,9 @@ describe('Float#coin_combo') do
   it("takes .02 and returns 'two pennies' as the smallest number of coins to give as change")do
     expect((0.02).coin_combo).to(eq("2 pennies"))
   end
+
+  it("takes 0.05 and returns 'one nickel' as the smallest number of coins to give as change") do
+    expect((0.05).coin_combo).to(eq("1 nickel"))
+  end
+
 end
