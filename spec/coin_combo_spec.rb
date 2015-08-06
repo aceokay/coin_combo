@@ -1,3 +1,39 @@
+# require('rspec')
+# require('coin_combo')
+# require('pry')
+#
+# describe('Fixnum#coin_combo') do
+#
+#   it("takes 25 and returns 'quarter' as the smallest number of coins to give as change") do
+#     expect((25).coin_combo).to(eq("1 quarter"))
+#   end
+#
+# end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 require('rspec')
 require('coin_combo')
 require('pry')
@@ -22,6 +58,10 @@ describe('Float#coin_combo') do
 
   it("takes 0.11 and returns '1 dime and 1 penny' as the smallest number of coins to give as change") do
     expect((0.11).coin_combo).to(eq("1 dime and 1 penny"))
+  end
+
+  it("takes 0.17 and returns 3 different appropriate coins as change") do
+    expect((0.17).coin_combo).to(eq("1 dime, 1 nickel and 2 pennies"))
   end
 
 end
